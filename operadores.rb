@@ -23,3 +23,9 @@ a *= 4 #a = a * 4
 a /= 4 #a = a / 4
 a %= 4 #a = a % 4 
 a **= 4 #a = a ** 4 
+puts a = 100
+puts a = 100000000 # Fica difícil ler com muitos zeros
+puts a = 100_000_000 # Pode usar _ para separar e possui o mesmo efeito
+puts a = 100.0
+puts 100.0.to_i # 100 - Conversão de float para inteiro
+puts 100.to_f # 100.0 - Conversão de inteiro para float
