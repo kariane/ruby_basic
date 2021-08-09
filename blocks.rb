@@ -38,6 +38,9 @@ foo
 foo do 
   puts "Com parâmetro do tipo bloco"
 end
+• Para blocos curtos, de apenas uma linha, adota-se as chaves;
+• Para blocos longos, de duas ou mais linhas, adota-se o do ...
+end.
 =end
 def foo(numbers, &block)
   if block_given?
@@ -53,4 +56,57 @@ foo(numbers) do |key, value|
   puts "key + value = #{key + value}"
   puts "key * value = #{key * value}"
   puts "======="
+end
+
+fruits = %w{pera uva maçã}
+fruits.each do |fruit|
+puts "Gosto de " + fruit
+end
+puts "======="
+a = %w{a b c d e f g h i j k l m n o p q r s t u v w x y z}
+counter = 0
+a.each { |val| counter += 1 }
+puts "O valor do contador é: #{counter}"
+
+puts "======="
+a = %w{a b c}
+i = 5
+a.each do |i|
+puts i
+end 
+puts i
+
+puts "======="
+a = %w{w o r d}
+a.each do |letter|
+word ||= ""
+word << letter
+puts word
+end
+#Podemos assim usar o _, que irá “absorver” esse parâmetro sem ter a necessidade de ter que declarar uma nova variável:
+#É recomendado sempre usar o _ ao invés de simplesmente omitir os valores.
+puts "======="
+a = {:a => 1, :b => 2, :c => 3}
+a.each do |_, value|
+#a.each do |key, value|
+puts value
+#puts _
+end
+puts "======="
+a = {:a => 1, :b => 2, :c => 3}
+a.each do |key|
+  puts key
+end
+
+puts "======="
+#• break - Pára o iterador completamente no momento em que for chamado;
+#• next - Passa para o próximo elemento;
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+numbers.each do |number|
+next if number.odd?
+puts number
+end # 2; 4; 6; 8; 10
+numbers.each do |number|
+break if number > 5
+puts number
 end
